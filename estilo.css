@@ -1,0 +1,16 @@
+
+/* nav para todos */
+.nav{
+    border-radius: 17px;
+    padding: 6px;
+    margin: -7px;
+    background-color: slategray;
+    height: 70px;
+    width: 100%;
+}
+
+/* INDEX */
+
+.main-index{
+     text-align: center;
+}
