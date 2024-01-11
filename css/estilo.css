@@ -1,16 +1,53 @@
 
 /* nav para todos */
-.nav{
+.nav {
+    display: flex;
     border-radius: 17px;
     padding: 6px;
     margin: -7px;
-    background-color: slategray;
+    background-color: #5cab3e;
     height: 70px;
     width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
+
+.nav .icon {
+    flex: 1;
+    text-align: center;
+    border-right: 2px solid white; /
+    margin-right: 10px; 
+}
+
+.nav .icon:last-child {
+    border-right: none;
+    margin-right: 0; 
+}
+
 
 /* INDEX */
 
 .main-index{
      text-align: center;
 }
+
+/* FICHAS */
+
+h1{
+    text-align: center;
+}
+
+.main-fichas{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: 18rem;
+    margin-bottom: 20px;
+}
+
+
