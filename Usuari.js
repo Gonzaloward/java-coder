@@ -7,7 +7,21 @@ function Usuario(usuario, clave) {
     this.clave = clave;
 }
 
+usuarios.push(
+    new Usuario("#02", "Mn12345"),
+    new Usuario("#03", "Mn12345"),
+    new Usuario("#04", "Mn12345")
+);
+
+
 function iniciarSesion(intentosMaximos, usuarios) {
+    var sesionGuardada = sessionStorage.getItem("sesion");
+
+    if (sesionGuardada) {
+        mostrarMensaje("Sesión iniciada automáticamente");
+        return;
+    }
+
     for (var intento = 1; intento <= intentosMaximos; intento++) {
         var decision = mostrarMensajeConBoton("¿Deseas iniciar sesión o crear un usuario?", "Iniciar Sesión", "Crear Usuario");
 
@@ -17,6 +31,8 @@ function iniciarSesion(intentosMaximos, usuarios) {
 
             if (verificarCredenciales(usuarioIng, claveIng, usuarios)) {
                 mostrarMensaje("Inicio de sesión exitoso");
+
+                sessionStorage.setItem("sesion", JSON.stringify({ usuario: usuarioIng }));
                 break;
             } else {
                 mostrarMensaje("Nombre de usuario o clave incorrectos. Intento " + intento + " de " + intentosMaximos);
@@ -49,7 +65,6 @@ function crearUsuario() {
     var nuevoUsuario = prompt("Ingrese nuevo usuario:");
     var nuevaClave = prompt("Ingrese la clave para el nuevo usuario:");
 
-    // Validación de entradas
     if (nuevoUsuario && nuevaClave) {
         usuarios.push(new Usuario(nuevoUsuario, nuevaClave));
         mostrarMensaje("Usuario creado con éxito");
@@ -63,9 +78,11 @@ function mostrarMensaje(mensaje) {
 }
 
 function cerrarVentana() {
+    sessionStorage.removeItem("sesion");
     window.close();
 }
 
 var intentosMaximos = 5;
 
 iniciarSesion(intentosMaximos, usuarios);
+
