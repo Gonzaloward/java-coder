@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <!-- link de los icon-->
     <script src="https://kit.fontawesome.com/2b5754638f.js" crossorigin="anonymous"></script>
+    <!-- link alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
     <!-- link bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -29,7 +31,7 @@
             </div>
         </nav>
     </header>
-    <h1> FICHAS </h1>
+    <h1> TRATAMIENTOS </h1>
     <main class="main-fichas">
 <div class="fi">
         <div class="card" style="width: 18rem;">
@@ -119,10 +121,8 @@
             celdaNombre.innerHTML = nombre;
             celdaPrecio.innerHTML = '$' + precio;
     
-            
             celdaPrecio.classList.add('valor');
     
-           
             datosExportados.push({ nombre: nombre, precio: precio });
         }
     
@@ -143,10 +143,16 @@
             enlaceDescarga.download = 'datos_exportados.json';
     
             enlaceDescarga.click();
-            
-        }
-    </script>
     
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UN EXITO",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    </script>    
 </body>
 
 </html>

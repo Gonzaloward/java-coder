@@ -6,8 +6,8 @@
 
     <!-- link a css -->
      <link rel="stylesheet" href="../css/estilo.css">
-    <!-- link a js
-    <script src="usuario.js"></script>-->
+     <!-- link alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
     <!-- link de los icon-->
      <script src="https://kit.fontawesome.com/2b5754638f.js" crossorigin="anonymous"></script>
     <!-- link bootstrap-->
@@ -48,6 +48,23 @@
     <button type="submit">Enviar</button>
 </form>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            Swal.fire({
+                title: '¡Enviado!',
+                text: 'El formulario se envió correctamente.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('contactForm').reset();
+                }
+            });
+        });
+    });
+</script>
 </main>
 <footer>
 
